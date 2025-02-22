@@ -21,7 +21,7 @@ services:
         "aggregator",
         "--json-rpc",
         "--l1-chain",
-        "holesky",
+        "${L1:-holesky}",
         "--l2-chain",
         "${L2:-base-sepolia}",
         "--metrics",

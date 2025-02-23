@@ -50,6 +50,6 @@ docker-compose --version
 
 echo "Setup complete! now you can run docker-compose up --build"
 echo "Running containers..."
-sudo docker-compose up --build
+sudo docker-compose up --build -d
 
 exit

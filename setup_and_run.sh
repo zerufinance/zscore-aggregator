@@ -10,12 +10,29 @@ sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
-    software-properties-common
+    software-properties-common \
+    build-essential
+
+# Install NVM (Node Version Manager)
+echo "Installing NVM..."
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# Load NVM
+eval "
+  export NVM_DIR=\"$HOME/.nvm\"  
+  [ -s \"$NVM_DIR/nvm.sh\" ] && \ . \"$NVM_DIR/nvm.sh\"  # This loads nvm
+  [ -s \"$NVM_DIR/bash_completion\" ] && \ . \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion
+"
+
+# Install Node.js version 22.6
+nvm install 22.6
+nvm alias default 22.6
 
 # Install Docker
 echo "Installing Docker..."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable"
 sudo apt-get update -y
 sudo apt-get install -y docker-ce
 

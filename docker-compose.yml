@@ -15,6 +15,7 @@ x-logging: &default-logging
 services:
   aggregator:
     <<: *othentic-cli
+    restart: unless-stopped
     command:
       [
         "node",
